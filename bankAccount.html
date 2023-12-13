@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+        function bankAccount(accountNumber, name, type,balance){
+            this.accountNumber=accountNumber;
+            this.Name=name;
+            this.Type=type;
+            this.Balance=balance;
+            this.Active=true;
+            this.status="on"
+        }
+        console.log(bankAccount)
+        bankAccount.prototype.deposit=function(amount){
+            if(amount>0){
+                this.Balance+=amount;
+                console.log(`your account balance ${this.Balance}`)
+            }
+            else{
+                console.log(`deposit some money`)
+            }
+            
+        }
+        bankAccount.prototype.withdraw=function(amount){
+            if(amount>0 && amount <=this.Balance){
+                this.Balance-=amount;
+                console.log(`you have withdrawn ${amount}`)
+                
+                
+            }
+            else{
+                console.log("you have no sufficient amount to withdraw")
+            }
+        }
+        bankAccount.prototype.checkBalance=function(){
+            console.log(`your account Balance ${this.Balance}`)
+        }
+        bankAccount.prototype.isActive=function(){
+            return this.Active
+        }
+        function totalBalance(Accounts){
+            let totalAmount=0;
+            for(const Account of Accounts ){
+                  if(Account.isActive()) {
+                    totalAmount += Account.Balance
+                  }
+            }
+            return totalAmount
+            
+        }
+        let person1=new bankAccount(93156111111,"Ankur","personal",10000)
+        let person2=new bankAccount(93838373636,"mr singh","personal",9000)
+        let person3=new bankAccount(88877463355,"mr sharma","personal",100000)
+        let person4=new bankAccount(30093837364,"miss mishra","personal",50000)
+        person1.deposit(10)
+        person4.withdraw(10000)
+        person2.checkBalance()
+
+        let Accounts =[person1,person2,person3,person4]
+        let total = totalBalance(Accounts)
+        console.log(total)
+
+        
+    </script>
+</body>
+</html>
