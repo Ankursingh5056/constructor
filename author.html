@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+        function Book (title, author, genre,price ){
+            this.Title = title;
+            this.Author = author;
+            this.Genre = genre;
+            this.Price = price;
+        }
+        function Author(name, birthYear, nationality){
+            this.Name = name;
+            this.BirthYear = birthYear;
+            this.Nationality = nationality
+        }
+        Book.prototype.getBookInfo=function(){
+            console.log(`${this.Title} \n ${this.Author.Name} \n ${this.Genre} \n ${this.Price}`)
+        }
+
+    
+    let A1 = new Author("Ankur","2002","indian")
+    let B1 = new Book("health",A1,"fitness",200)
+
+    let A2 = new Author("mahak","1928","indian")
+    let B2 = new Book("gyno",A2,"ganjapan",20000)
+
+    let A3 = new Author("ravi","2013","US")
+    let B3 = new Book("comady",A3,"mimicary",200)
+
+
+    // B1.getBookInfo()
+    // B2.getBookInfo()
+    // B3.getBookInfo()
+    let stockBooks = [B1,B2,B3];
+    for(let i = 0 ;i<stockBooks.length;i++){
+        console.log(` in stock`, stockBooks[i] )
+
+    }
+    
+
+
+
+
+
+    </script>
+</body>
+</html>
